@@ -1,0 +1,1 @@
+export const getCodeLength = examples => examples.code.split('').length;
