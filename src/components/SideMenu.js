@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Router from 'next/router'
+import Router from 'next/router';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
@@ -66,14 +66,31 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end'
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    }),
+    marginLeft: -drawerWidth,
+    marginTop: '10px'
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    }),
+    marginLeft: 0
   }
 }));
 
-export default function SideMenu() {
+export default function SideMenu({ children }) {
   const classes = useStyles();
   const theme = useTheme();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
@@ -128,7 +145,7 @@ export default function SideMenu() {
             <ListItemIcon>
               <HelpOutlineIcon />
             </ListItemIcon>
-            <ListItemText primary={'About'}/>
+            <ListItemText primary={'About'} />
           </ListItem>
         </List>
         <Divider />
@@ -142,6 +159,13 @@ export default function SideMenu() {
           </ListItem>
         </List>
       </Drawer>
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: open
+        })}
+      >
+        {children}
+      </main>
     </div>
   );
 }
