@@ -15,7 +15,8 @@ const useStyles = makeStyles(() => ({
 
 export default function ExamplePage() {
   const router = useRouter();
-  
+  const { example } = router.query;
+
   const [notes, setNotes] = useState(null);
   const [examples, setExamples] = useState(null);
 
@@ -26,15 +27,19 @@ export default function ExamplePage() {
       console.log('useEffect example')
 
       // TODO: Sometimes 'example' is undefined
-      const { example } = router.query;
+      
       // const { notes, examples } = await import(`./${example}/code.js`);
       let notes = null;
       let examples = null;
 
       console.log('exampoles es ', example)
 
+      if (!example) example= 'count'
+
       if (example) {
+        
         ({ notes, examples } = await import(`./${example}/code.js`));
+        console.log('AHHHH', examples)
       }
 
       setNotes(notes);
@@ -48,10 +53,10 @@ export default function ExamplePage() {
     <>
       <SideMenu></SideMenu>
       {examples && examples.length >= 2 && <Result data={examples}></Result>}
-      {/* <div className={classes.root}>
-        {examples && examples.map(code => <CodeBlock code={code}></CodeBlock>)}
+      <div className={classes.root}>
+        {examples && examples.map(code => <CodeBlock code={code} key={code.name}></CodeBlock>)}
         <h1>{notes}</h1>
-      </div> */}
+      </div>
     </>
   );
 }
