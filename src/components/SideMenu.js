@@ -23,10 +23,11 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   HelpOutline as HelpOutlineIcon,
-  AssignmentTurnedIn as AssignmentTurnedInIcon
+  AssignmentTurnedIn as AssignmentTurnedInIcon,
+  AddCircleOutline as AddCircleOutlineIcon
 } from '@material-ui/icons';
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -151,12 +152,21 @@ export default function SideMenu({ children }) {
         <Divider />
         {/* List of examples */}
         <List>
+
           <ListItem button onClick={() => goTo('/examples/count')}>
             <ListItemIcon>
-              <AssignmentTurnedInIcon />
+              <AddCircleOutlineIcon />
             </ListItemIcon>
             <ListItemText primary={'Count'} />
           </ListItem>
+
+          <ListItem button onClick={() => goTo('/examples/todo-app')}>
+            <ListItemIcon>
+              <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Todo app'} />
+          </ListItem>
+
         </List>
       </Drawer>
       <main

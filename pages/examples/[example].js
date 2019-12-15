@@ -35,7 +35,7 @@ export default function ExamplePage() {
 
       console.log('exampoles es ', example);
 
-      if (!example) example = 'count';
+      if (!example) example = 'todo-app';
 
       if (example) {
         ({ notes, examples } = await import(`./${example}/code.js`));
@@ -50,8 +50,7 @@ export default function ExamplePage() {
   }, []);
 
   return (
-    <>
-      <SideMenu></SideMenu>
+    <SideMenu>
       {examples && examples.length >= 2 && <Result data={examples}></Result>}
       <div className={classes.root}>
         {examples &&
@@ -63,9 +62,12 @@ export default function ExamplePage() {
         <div>
           <Divider />
           <Typography variant="h4">Notes</Typography>
-          <Typography variant="h6" dangerouslySetInnerHTML={{__html: notes }} />
+          <Typography
+            variant="h6"
+            dangerouslySetInnerHTML={{ __html: notes }}
+          />
         </div>
       )}
-    </>
+    </SideMenu>
   );
 }
