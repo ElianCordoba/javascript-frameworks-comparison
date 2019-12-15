@@ -7,7 +7,6 @@ export default function Result({ data }) {
   const [porcentage, setPorcentage] = useState(null);
 
   useEffect(() => {
-    console.log('useEffect result')
     const sortedArray = data.sort((a, b) => a.length - b.length);
     
     const result = 100 - (sortedArray[0].length / sortedArray[1].length) * 100;

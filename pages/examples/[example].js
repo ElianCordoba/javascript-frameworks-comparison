@@ -25,29 +25,14 @@ export default function ExamplePage() {
 
   useEffect(() => {
     async function getExamples() {
-      console.log('useEffect example');
-
-      // TODO: Sometimes 'example' is undefined
-
-      // const { notes, examples } = await import(`./${example}/code.js`);
-      let notes = null;
-      let examples = null;
-
-      console.log('exampoles es ', example);
-
-      if (!example) example = 'todo-app';
-
-      if (example) {
-        ({ notes, examples } = await import(`./${example}/code.js`));
-        console.log('AHHHH', examples);
-      }
+      const { notes, examples } = await import(`./${example}/code.js`);
 
       setNotes(notes);
       setExamples(examples);
     }
 
     getExamples();
-  }, []);
+  }, [example]);
 
   return (
     <SideMenu>
