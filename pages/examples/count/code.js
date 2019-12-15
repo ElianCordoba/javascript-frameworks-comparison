@@ -52,5 +52,3 @@ export const examples = [
     }
   }
 ];
-
-export const notes = `Code take from <a href="https://youtu.be/AdNJ3fydeao?t=940">this</a> presentation by Svelte creator, <a href="https://twitter.com/Rich_Harris">Rich Harris</a>`;
