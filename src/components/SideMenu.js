@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen
     }),
     marginLeft: -drawerWidth,
-    marginTop: '10px'
+    marginTop: '70px'
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -96,7 +96,7 @@ export default function SideMenu({ children }) {
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
 
-  const goTo = path => Router.push(path);
+  const goTo = path => Router.push('/examples/[example]', `/examples/${path}`);
 
   return (
     <div className={classes.root}>
@@ -152,21 +152,20 @@ export default function SideMenu({ children }) {
         <Divider />
         {/* List of examples */}
         <List>
-
-          <ListItem button onClick={() => goTo('/examples/count')}>
+          
+          <ListItem button onClick={() => goTo('count')}>
             <ListItemIcon>
               <AddCircleOutlineIcon />
             </ListItemIcon>
             <ListItemText primary={'Count'} />
           </ListItem>
 
-          <ListItem button onClick={() => goTo('/examples/todo-app')}>
+          <ListItem button onClick={() => goTo('todo-app')}>
             <ListItemIcon>
               <AssignmentTurnedInIcon />
             </ListItemIcon>
             <ListItemText primary={'Todo app'} />
           </ListItem>
-
         </List>
       </Drawer>
       <main
