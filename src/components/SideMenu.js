@@ -23,9 +23,14 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   HelpOutline as HelpOutlineIcon,
-  AssignmentTurnedIn as AssignmentTurnedInIcon,
-  AddCircleOutline as AddCircleOutlineIcon
+  Label as LabelIcon
 } from '@material-ui/icons';
+
+import { capitalize } from '../utils';
+
+// Add your new example down here!
+const examplesList = ['count', 'todo-app'];
+// Add your new example up here!
 
 const drawerWidth = 180;
 
@@ -156,22 +161,15 @@ export default function SideMenu({ children }) {
           </ListItem>
         </List>
         <Divider />
-        {/* List of examples */}
         <List>
-          
-          <ListItem button onClick={() => goTo('count')}>
-            <ListItemIcon>
-              <AddCircleOutlineIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Count'} />
-          </ListItem>
-
-          <ListItem button onClick={() => goTo('todo-app')}>
-            <ListItemIcon>
-              <AssignmentTurnedInIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Todo app'} />
-          </ListItem>
+          {examplesList.map(example => 
+            <ListItem button onClick={() => goTo(example)} key={example}>
+              <ListItemIcon>
+                <LabelIcon />
+              </ListItemIcon>
+              <ListItemText primary={capitalize(example)} />
+            </ListItem>
+          )}
         </List>
       </Drawer>
       <main
