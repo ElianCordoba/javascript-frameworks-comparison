@@ -96,7 +96,13 @@ export default function SideMenu({ children }) {
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
 
-  const goTo = path => Router.push('/[example]', `/${path}`);
+  function goTo(path = '/') {
+    if (path === '/') {
+      Router.push(path);
+    } else {
+      Router.push('/[example]', `/${path}`); 
+    }
+  }
 
   return (
     <div className={classes.root}>
