@@ -16,8 +16,8 @@ export default function CodeBlock({ code }) {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h6" align='center'>~{code.length} characters</Typography>
-      <SyntaxHighlighter language="javascript">{code.code}</SyntaxHighlighter>
+      <Typography variant="h6" align='center'>{code.name} is ~{code.length} characters</Typography>
+      <SyntaxHighlighter language="javascript" showLineNumbers={true}>{code.code}</SyntaxHighlighter>
     </div>
   );
 }
