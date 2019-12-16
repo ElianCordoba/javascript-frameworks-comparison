@@ -25,8 +25,14 @@ export default function ExamplePage() {
 
   useEffect(() => {
     async function getExamples() {
-      const { notes, examples } = await import(`../src/examples/${example}/code.js`);
 
+      // This check is because of this nextjs.org/docs#automatic-static-optimization
+      let notes = '';
+      let examples = [];
+      if (example) {
+        ({ notes, examples } = await import(`../src/examples/${example}/code.js`));
+      }
+      
       setNotes(notes);
       setExamples(examples);
     }
