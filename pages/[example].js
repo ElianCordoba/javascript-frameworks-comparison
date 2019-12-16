@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import { Divider, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import SideMenu from '../../src/components/SideMenu';
-import CodeBlock from '../../src/components/CodeBlock';
-import Result from '../../src/components/Result';
+import SideMenu from '../src/components/SideMenu';
+import CodeBlock from '../src/components/CodeBlock';
+import Result from '../src/components/Result';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,7 +25,7 @@ export default function ExamplePage() {
 
   useEffect(() => {
     async function getExamples() {
-      const { notes, examples } = await import(`./${example}/code.js`);
+      const { notes, examples } = await import(`../src/examples/${example}/code.js`);
 
       setNotes(notes);
       setExamples(examples);

@@ -3,27 +3,26 @@ import { getCodeLength } from '../../../src/utils';
 export const examples = [
   {
     name: 'React',
-    code: `
-    import React, { useState } from 'react';
-    
+    code: 
+    `import React, { useState } from 'react';
+        
     export default function Count() {
       const [count, setCount] = useState(0);
-    
+
       const increment = () => setCount(count + 1);
       const decrement = () => setCount(count - 1);
       const reset = () => setCount(0);
-    
+
       return (
         <>
           <h1>The count is {count}</h1>
-    
+
           <button onClick={decrement}>-</button>
           <button onClick={reset}>reset</button>
           <button onClick={increment}>+</button>
         </>
       );
-    }
-    `,
+    }`,
     get length() {
       return getCodeLength(this);
     }
