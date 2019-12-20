@@ -10,7 +10,8 @@ import Result from '../src/components/Result';
 
 const useStyles = makeStyles(() => ({
   root: {
-    display: 'flex'
+    display: 'grid',
+    gridTemplateColumns: '50% 50%'
   }
 }));
 
