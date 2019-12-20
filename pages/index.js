@@ -6,9 +6,6 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import SideMenu from '../src/components/SideMenu';
 
 const useStyles = makeStyles(() => ({
-  content: {
-    marginTop: '80px'
-  },
   dividerMargin: {
     margin: '50px 0'
   }
@@ -43,39 +40,34 @@ export default function Index() {
         </Typography>
 
         <Typography variant="body1" gutterBottom>
-          To add a new examples you just have to first create a folder in
-          `src/examples/name-of-new-examples` with a single file inside it
-          called `code.js`, with the following format:
+          To add a new example you just have to create a js file with the name of the example in the `src/examples` folder, with the following format:
         </Typography>
 
         <Divider className={classes.dividerMargin} />
 
         <SyntaxHighlighter language="javascript">
-          {`import { getCodeLength } from '../../../src/utils';
+          {
+`import { CodeExample } from '../utils';
 
 export const examples = [
-  {
-  name: 'React',
-  code: '// Some React code',
-  get length() {
-    return getCodeLength(this);
-  },
-  {
-    name: 'Svelte',
-    code: '// Some Svelte code',
-    get length() {
-      return getCodeLength(this);
-    }
-  }
+  new CodeExample(
+    'React',
+    '// Some React code'
+  ),
+  new CodeExample(
+    'Vue',
+    '// Some Vue code'
+  )
 ];
 
 // Optional:
 export const notes = 'This code was take from..... || This example shows.....';`}
         </SyntaxHighlighter>
 
+        <Divider className={classes.dividerMargin} />
+
         <Typography variant="body1" gutterBottom>
-          Lastly just add the name of the example (has to be the same name of
-          the folder), to the `examplesList` array in `SideMenu.js`.
+          Then, just add the name of the example to the `examplesList` array in `SideMenu.js`.
         </Typography>
       </div>
     </SideMenu>
