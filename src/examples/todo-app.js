@@ -1,9 +1,7 @@
-import { getCodeLength } from '../../../src/utils';
+import { CodeExample } from '../utils';
 
 export const examples = [
-  {
-    name: 'React',
-    code: 
+  new CodeExample('React',
 `import React, { useState, useMemo } from 'react';
 
 export default function TodoList() {
@@ -66,14 +64,8 @@ export default function TodoList() {
       </ul>
     </div>
   );
-}`,
-    get length() {
-      return getCodeLength(this);
-    }
-  },
-  {
-    name: 'Svelte',
-    code: 
+}`),
+  new CodeExample('Svelte',
 `<script>
   let todos = [
     { done: false, text: 'eat' },
@@ -117,11 +109,7 @@ export default function TodoList() {
       {todo.done ? '👍' : ''} {todo.text}
     </li>
   {/each}
-</ul>`,
-    get length() {
-      return getCodeLength(this);
-    }
-  }
+</ul>`)
 ];
 
 export const notes = `Code take from <a href="https://youtu.be/AdNJ3fydeao?t=940">this</a> presentation by Svelte creator, <a href="https://twitter.com/Rich_Harris">Rich Harris</a>`;

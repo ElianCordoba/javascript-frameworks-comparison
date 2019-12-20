@@ -1,9 +1,8 @@
-import { getCodeLength } from '../../../src/utils';
+import { CodeExample } from '../utils';
 
 export const examples = [
-  {
-    name: 'React',
-    code: 
+  new CodeExample(
+    'React',
 `import React, { useState } from 'react';
     
 export default function Count() {
@@ -22,14 +21,10 @@ export default function Count() {
       <button onClick={increment}>+</button>
     </>
   );
-}`,
-    get length() {
-      return getCodeLength(this);
-    }
-  },
-  {
-    name: 'Svelte',
-    code: 
+}`
+  ),
+  new CodeExample(
+    'Svelte',
 `<script>
   import { writable } from "svelte/store";
 
@@ -44,9 +39,6 @@ export default function Count() {
 
 <button on:click={decrement}>-</button>
 <button on:click={reset}>reset</button>
-<button on:click={increment}>+</button>`,
-    get length() {
-      return getCodeLength(this);
-    }
-  }
+<button on:click={increment}>+</button>`
+  )
 ];

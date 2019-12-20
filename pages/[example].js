@@ -31,7 +31,7 @@ export default function ExamplePage() {
       let notes = '';
       let examples = [];
       if (example) {
-        ({ notes, examples } = await import(`../src/examples/${example}/code.js`));
+        ({ notes, examples } = await import(`../src/examples/${example}.js`));
       }
       
       setNotes(notes);
