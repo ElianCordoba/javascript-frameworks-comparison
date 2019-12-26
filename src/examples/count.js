@@ -46,13 +46,13 @@ export default function Count() {
   new CodeExample(
     'Vue',
     `<template>
-<div id="app">
-  <h1>The count is {{count}}</h1>
+  <div>
+    <h1>The count is {{count}}</h1>
 
-  <button @click="decrement">-</button>
-  <button @click="reset">reset</button>
-  <button @click="increment">+</button>
-</div>
+    <button @click="decrement">-</button>
+    <button @click="reset">reset</button>
+    <button @click="increment">+</button>
+  </div>
 </template>
 
 <script>
