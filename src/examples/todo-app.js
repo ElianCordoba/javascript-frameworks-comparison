@@ -1,7 +1,7 @@
-import { CodeExample } from '../utils';
+import { Frameworks, CodeExample } from '../utils';
 
 export const examples = [
-  new CodeExample('React',
+  new CodeExample(Frameworks.React,
 `import React, { useState, useMemo } from 'react';
 
 export default function TodoList() {
@@ -65,7 +65,7 @@ export default function TodoList() {
     </div>
   );
 }`),
-  new CodeExample('Svelte',
+  new CodeExample(Frameworks.Svelte,
 `<script>
   let todos = [
     { done: false, text: 'eat' },

@@ -1,8 +1,8 @@
-import { CodeExample } from '../utils';
+import { Frameworks, CodeExample } from '../utils';
 
 export const examples = [
   new CodeExample(
-    'React',
+    Frameworks.React,
     `import React, { useState } from 'react';
     
 export default function Count() {
@@ -25,7 +25,7 @@ export default function Count() {
   ),
 
   new CodeExample(
-    'Svelte',
+    Frameworks.Svelte,
     `<script>
   import { writable } from "svelte/store";
 
@@ -44,7 +44,7 @@ export default function Count() {
   ),
 
   new CodeExample(
-    'Vue',
+    Frameworks.Vue,
     `<template>
   <div>
     <h1>The count is {{count}}</h1>
@@ -75,7 +75,7 @@ export default function Count() {
 </script>`
   ),
 
-  new CodeExample('Angular', 
+  new CodeExample(Frameworks.Angular, 
 `import { Component } from "@angular/core";
 
 @Component({
