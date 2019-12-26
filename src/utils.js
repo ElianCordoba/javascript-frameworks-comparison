@@ -9,6 +9,6 @@ export class CodeExample {
   }
 
   get length() {
-    return this.code.split('').length;
+    return this.code.split('').filter(char => char !== ' ').length;
   } 
 }
