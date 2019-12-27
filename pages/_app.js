@@ -20,7 +20,7 @@ export default class MyApp extends App {
       jssStyles.parentElement.removeChild(jssStyles);
     }
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.ENV !== 'prod') {
       const whyDidYouRender = require('@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js');
       whyDidYouRender(React);
     }
@@ -32,7 +32,7 @@ export default class MyApp extends App {
     return (
       <React.Fragment>
         <Head>
-          <title>My page</title>
+          <title>Javascript frameworks comparison</title>
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />

@@ -1,7 +1,7 @@
 {
-  "name": "nextjs",
-  "version": "4.0.0",
-  "private": true,
+  "name": "javascript-frameworks-comparison",
+  "version": "1.0.0",
+  "private": false,
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.5.1",
