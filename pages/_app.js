@@ -1,11 +1,16 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
+import Router from 'next/router'
+
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from '../src/theme';
 import Footer from '../src/components/Footer';
+
+import * as gtag from '../src/analitycs';
+Router.events.on('routeChangeComplete', url => gtag.pageview(url));
 
 export default class MyApp extends App {
   componentDidMount() {
