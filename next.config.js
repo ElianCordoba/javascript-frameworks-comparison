@@ -1,6 +1,9 @@
-let env = process.env;
+let env = {};
 
-if (env.ENV !== 'prod') {
+if (process.env.ENV === 'prod') {
+  env.ENV = process.env.ENV;
+  env.GA_TRACKING_ID = process.env.GA_TRACKING_ID;
+} else {
   env = { ...env, ...require('dotenv').config().parsed };
 }
 
