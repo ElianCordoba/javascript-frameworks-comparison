@@ -1,7 +1,7 @@
-let env = require('dotenv').config().parsed;
+let env = process.env;
 
-if (env.ENV !== 'local') {
-  env = { ...env, ...process.env }
+if (env.ENV !== 'prod') {
+  env = { ...env, ...require('dotenv').config().parsed };
 }
 
 module.exports = {
